@@ -1,15 +1,21 @@
 package com.example.primer_spring_boot.controller;
 
-import org.springframework.stereotype.Controller;
+import java.util.HashMap;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-
-
-@Controller 
+@RestController 
 public class EjemploController {
 
     @GetMapping("/detalles_info")
-    public String info(){
-        return "detalles_info";
+    public HashMap<String,Object> holaSpring() {
+        HashMap <String,Object> map = new HashMap<>();
+        map.put("title","Spring Boot page");
+        map.put("name","Tomas");
+        map.put("message","hi :)");
+        return map;
     }
+    
 }
+
