@@ -2,252 +2,353 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    min-height: 100vh;
-    background: #0f1117;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0f1117;
     color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
+    min-height: 100vh;
 }
 
-/* Contenedor principal */
-
-.library-container {
-    width: 100%;
+.container {
+    width: 90%;
     max-width: 1100px;
-    min-height: 650px;
-    background: #171a23;
-    border: 1px solid #292e3b;
-    border-radius: 18px;
-    padding: 30px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    margin: 0 auto;
+    padding: 50px 0;
 }
 
-/* Título */
+/* HEADER */
 
 .header {
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 
 .header h1 {
-    font-size: 30px;
-    margin-bottom: 6px;
+    font-size: 32px;
+    margin-bottom: 8px;
 }
 
 .header p {
-    color: #858b9a;
-    font-size: 14px;
+    color: #9298a5;
+    font-size: 15px;
 }
 
-/* Buscador */
+/* LIBRARY */
 
-.search-container {
+.library {
+    background-color: #181b24;
+    border: 1px solid #272b36;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+/* SEARCH */
+
+.library-top {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 25px;
 }
 
-.search-box {
+.search-container {
     width: 100%;
-    height: 48px;
-    background: #10131a;
-    border: 1px solid #2b303d;
-    border-radius: 10px;
-    padding: 0 16px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 13px 15px;
+
+    background-color: #10131a;
     color: #ffffff;
-    font-size: 14px;
+
+    border: 1px solid #303541;
+    border-radius: 8px;
+
+    font-size: 15px;
+
     outline: none;
-    transition: 0.2s;
-    color: #a69bff;
+
+    transition: border-color 0.2s;
 }
 
-.search-box::placeholder {
-    color: #666d7c;
+#searchInput:focus {
+    border-color: #6366f1;
 }
 
-.search-box:focus {
-    border-color: #6c5ce7;
-
-    box-shadow:
-        0 0 0 3px rgba(108, 92, 231, 0.12);
+#searchInput::placeholder {
+    color: #6f7582;
 }
 
-/* Tabla */
+/* TABLE */
 
-.games-container {
-    width: 100%;
+.table-container {
     overflow-x: auto;
-    min-height: 390px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 700px;
 }
 
 thead {
-    background: #1e222d;
+    background-color: #20232d;
 }
 
 th {
     text-align: left;
-    padding: 15px 18px;
-    color: #8f96a6;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
+    padding: 15px;
+
+    color: #9ca3af;
+
+    font-size: 13px;
     font-weight: 600;
+
+    text-transform: uppercase;
 }
 
 td {
-    padding: 18px;
-    border-bottom: 1px solid #292e39;
+    padding: 17px 15px;
+
+    border-bottom: 1px solid #272b36;
+
     font-size: 14px;
 }
 
 tbody tr {
-    transition: 0.2s;
+    transition: background-color 0.15s;
 }
 
 tbody tr:hover {
-    background: #1d202a;
+    background-color: #1e222c;
 }
 
-/* Datos */
-
-.game-id {
-    color: #777e8e;
-}
-
-.game-name {
-    font-weight: 600;
-}
-
-.hours {
-    color: #b7bdca;
-}
-
-/* Estados */
+/* STATUS */
 
 .status {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 6px 10px;
+    display: inline-block;
+
+    padding: 5px 10px;
+
     border-radius: 20px;
+
     font-size: 12px;
     font-weight: 600;
 }
 
-.status.completed {
-    background: rgba(46, 204, 113, 0.12);
-    color: #42d984;
+.status-completed {
+    background-color: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
 }
 
-.status.pending {
-    background: rgba(241, 196, 15, 0.12);
-    color: #f1c40f;
+.status-pending {
+    background-color: rgba(234, 179, 8, 0.12);
+    color: #facc15;
 }
 
-.status::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: currentColor;
-}
-
-/* Mensaje cuando no hay juegos */
+/* EMPTY */
 
 .empty-message {
     display: none;
-    height: 350px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #686f7e;
+
     text-align: center;
+
+    padding: 45px 20px;
+
+    color: #777e8c;
 }
 
-.empty-message h3 {
-    color: #aeb4c1;
-    margin-bottom: 6px;
-}
-
-/* Botones */
+/* ACTIONS */
 
 .actions {
     display: flex;
     gap: 12px;
+
     margin-top: 25px;
 }
 
-.btn {
+.button {
     border: none;
-    border-radius: 9px;
-    padding: 12px 20px;
+    border-radius: 8px;
+
+    padding: 12px 18px;
+
     font-size: 14px;
     font-weight: 600;
+
     cursor: pointer;
-    transition: 0.2s;
+
+    transition:
+        background-color 0.2s,
+        transform 0.1s;
 }
 
-/* Registrar */
+.button:active {
+    transform: scale(0.98);
+}
 
-.btn-register {
-    background: #6c5ce7;
+.button-primary {
+    background-color: #6366f1;
     color: white;
 }
 
-.btn-register:hover {
-    background: #7b6bea;
-    transform: translateY(-1px);
+.button-primary:hover {
+    background-color: #5558db;
 }
 
-/* Eliminar */
-
-.btn-delete {
-    background: #252a35;
-    color: #d5d9e1;
-    border: 1px solid #343a48;
-    
+.button-danger {
+    background-color: #2a1b20;
+    color: #f87171;
 }
 
-.btn-delete:hover {
-    background: #303641;
-    color: #ff6b6b;
-    transform: translateY(-1px);
-    border-color: #553333;
+.button-danger:hover {
+    background-color: #3a2027;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 
-@media (max-width: 700px) {
+@media (max-width: 650px) {
 
-    body {
-        padding: 15px;
-
-        align-items: flex-start;
+    .container {
+        width: 95%;
+        padding: 25px 0;
     }
 
-    .library-container {
-        padding: 20px;
-        margin-top: 10px;
+    .library {
+        padding: 15px;
     }
 
     .header h1 {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .actions {
         flex-direction: column;
     }
 
-    .btn {
+    .button {
         width: 100%;
     }
 }
+
+
+#gameForm {
+    display: none;
+
+    margin-top: 25px;
+    padding: 20px;
+
+    background-color: #20232d;
+    border: 1px solid #303541;
+    border-radius: 10px;
+}
+
+#gameForm h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#gameForm input[type="text"],
+#gameForm input[type="number"] {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 15px;
+    padding: 12px;
+
+    background-color: #10131a;
+    color: white;
+
+    border: 1px solid #303541;
+    border-radius: 7px;
+
+    outline: none;
+}
+
+#gameForm input:focus {
+    border-color: #6366f1;
+}
+
+#gameForm label {
+    display: block;
+    margin-bottom: 18px;
+
+    color: #b5bac5;
+}
+
+#saveGameButton {
+    border: none;
+    border-radius: 8px;
+
+    padding: 11px 18px;
+
+    background-color: #6366f1;
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+#saveGameButton:hover {
+    background-color: #5558db;
+}
+
+#deleteForm {
+    display: none;
+
+    margin-top: 25px;
+    padding: 20px;
+
+    background-color: #20232d;
+    border: 1px solid #303541;
+    border-radius: 10px;
+}
+
+#deleteForm h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#deleteGameId {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 15px;
+    padding: 12px;
+
+    background-color: #10131a;
+    color: white;
+
+    border: 1px solid #303541;
+    border-radius: 7px;
+
+    outline: none;
+}
+
+#deleteGameId:focus {
+    border-color: #ef4444;
+}
+
+#confirmDeleteButton {
+    border: none;
+    border-radius: 8px;
+
+    padding: 11px 18px;
+
+    background-color: #dc2626;
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+#confirmDeleteButton:hover {
+    background-color: #b91c1c;
+}
+
+
+

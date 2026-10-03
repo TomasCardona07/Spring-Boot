@@ -3,61 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Library</title>
+
+    <title>Biblioteca de Videojuegos</title>
 
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <main class="library-container">
+
+    <main class="container">
+
         <header class="header">
-            <h1>My library</h1>
-            <p>Manage and view your registered videogames</p>
+            <div>
+                <h1>Biblioteca de Videojuegos</h1>
+                <p>Gestiona los videojuegos que estás jugando o ya terminaste.</p>
+            </div>
         </header>
 
-        <section class="search-container">
-            <input
-                type="text"
-                class="search-box"
-                placeholder="Search by Id..."
-            >
-        </section>
-
-        <section class="games-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Hours</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="game_id" class="game-id"></td>
-                        <td id="game_name" class="game-name"></td>
-                        <td id="game_hours" class="hours"></td>
-                        <td>
-                            <span id="game_completed" class="status completed">
-                            </span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div id="query_game" class="empty-message">
+        <section class="library">
+            <div class="library-top">
+                <div class="search-container">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Buscar videojuego por nombre..."
+                    >
+                </div>
             </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Videojuego</th>
+                            <th>Horas totales</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="gamesTableBody">
+                        <!--
+                            Los videojuegos serán cargados
+                            mediante JavaScript desde Spring Boot.
+                        -->
+                    </tbody>
+                </table>
+
+                <div id="emptyMessage" class="empty-message">
+                    No hay videojuegos para mostrar.
+                </div>
+            </div>
+
+            <div class="actions">
+                <button
+                    id="addGameButton"
+                    class="button button-primary">
+                    + Agregar videojuego
+                </button>
+
+                <button
+                    id="deleteGameButton"
+                    class="button button-danger">
+                    − Eliminar videojuego
+                </button>
+            </div>
+            <div id="gameForm">
+
+                <h2>Agregar videojuego</h2>
+
+                <input
+                    id="gameName"
+                    type="text"
+                    placeholder="Nombre del videojuego"
+                >
+
+                <input
+                    id="gameHours"
+                    type="number"
+                    placeholder="Horas totales"
+                >
+
+                <label>
+                    <input
+                        id="gameCompleted"
+                        type="checkbox"
+                    >
+                    Completado
+                </label>
+            
+                <button id="saveGameButton">
+                    Guardar
+                </button>
+            </div>
+
+            <div id="deleteForm">
+
+                <h2>Eliminar videojuego</h2>
+
+                <input
+                    id="deleteGameId"
+                    type="number"
+                    placeholder="ID del videojuego"
+                >
+
+                <button id="confirmDeleteButton">
+                    Eliminar
+                </button>
+
+            </div>
+
+            
+
         </section>
-
-        <div class="actions">
-            <button class="btn btn-register">
-                + Registrar juego
-            </button>
-
-            <button class="btn btn-delete">
-                Eliminar juego
-            </button>
-        </div>
     </main>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
