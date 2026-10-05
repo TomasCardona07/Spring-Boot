@@ -8,7 +8,7 @@ const confirmDelete = document.getElementById("confirmDeleteButton");
 const gameForm = document.getElementById("gameForm");
 
 function cargarVideojuegos() {
-    fetch("https://tomascardona07.github.io/Spring-Boot/")
+    fetch("/api/videojuegos")
     .then(response => response.json())
     .then(videojuegos => {
         // Limpiar la tabla
@@ -45,7 +45,7 @@ saveGame.addEventListener("click", function() {
         hours: Number(horas),
         completed: completado
     };
-    fetch("https://tomascardona07.github.io/Spring-Boot/", {
+    fetch("/api/videojuegos", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -78,7 +78,7 @@ deleteGame.addEventListener("click", function() {
 
 confirmDelete.addEventListener("click", function() {
     const id = document.getElementById("deleteGameId").value;
-    fetch("https://tomascardona07.github.io/Spring-Boot/" + id, {
+    fetch("/api/videojuegos/" + id, {
         method: "DELETE"
     })
     .then(response => response.text())
