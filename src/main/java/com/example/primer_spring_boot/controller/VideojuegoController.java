@@ -19,7 +19,7 @@ import com.example.primer_spring_boot.service.VideojuegoService;
 
 
 @RestController 
-@RequestMapping("https://tomascardona07.github.io/Spring-Boot/")
+@RequestMapping("/api/videojuegos")
 public class VideojuegoController {
 
     private VideojuegoService videojuegoService;
