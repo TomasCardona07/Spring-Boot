@@ -8,7 +8,7 @@ const confirmDelete = document.getElementById("confirmDeleteButton");
 const gameForm = document.getElementById("gameForm");
 
 function cargarVideojuegos() {
-    fetch("https://tomascardona07.github.io/Spring-Boot")
+    fetch("https://tomascardona07.github.io/Spring-Boot/")
     .then(response => response.json())
     .then(videojuegos => {
         // Limpiar la tabla
@@ -45,7 +45,7 @@ saveGame.addEventListener("click", function() {
         hours: Number(horas),
         completed: completado
     };
-    fetch("https://tomascardona07.github.io/Spring-Boot", {
+    fetch("https://tomascardona07.github.io/Spring-Boot/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
